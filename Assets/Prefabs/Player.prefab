@@ -151,6 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   username: 
+  rb: {fileID: 277027224104532597}
 --- !u!70 &1371685179
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

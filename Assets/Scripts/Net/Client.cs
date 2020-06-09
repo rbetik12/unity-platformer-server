@@ -105,8 +105,7 @@ namespace Net {
                     ThreadManager.ExecuteOnMainThread(() => {
                         using (Packet packet = new Packet(packetBytes)) {
                             int packetId = packet.ReadInt();
-                            Server.packetHandlers
-                                [packetId](id, packet); // Call appropriate method to handle the packet
+                            Server.packetHandlers[packetId](id, packet); // Call appropriate method to handle the packet
                         }
                     });
 

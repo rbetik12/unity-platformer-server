@@ -102,6 +102,7 @@ namespace Net {
 
             packetHandlers = new Dictionary<int, PacketHandler>() {
                 { (int) ClientPackets.welcomeReceived, ServerHandler.WelcomeReceived },
+                { (int) ClientPackets.playerMovement, ServerHandler.PlayerMovement },
             };
             Debug.Log("Initialized packets.");
         }
