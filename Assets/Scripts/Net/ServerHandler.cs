@@ -17,12 +17,11 @@ namespace Net {
         }
 
         public static void PlayerMovement(int fromClient, Packet packet) {
-            float isMoving = packet.ReadFloat();
             float movementDir = packet.ReadFloat();
             float isJumping = packet.ReadFloat();
             Quaternion rotation = packet.ReadQuaternion();
 
-            Server.clients[fromClient].player.SetInput(movementDir, isMoving, isJumping);
+            Server.clients[fromClient].player.SetInput(movementDir, isJumping);
             Server.clients[fromClient].player.rotation = rotation;
         }
     }
