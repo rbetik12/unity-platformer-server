@@ -75,6 +75,7 @@ namespace Net {
                     Array.Copy(receiveBuffer, data, byteLength);
 
                     receivedData.Reset(HandleData(data)); // Reset receivedData if all data was handled
+                    Debug.Log("Here");
                     stream.BeginRead(receiveBuffer, 0, dataBufferSize, ReceiveCallback, null);
                 }
                 catch (Exception ex) {
@@ -205,9 +206,10 @@ namespace Net {
         private void Disconnect() {
             Debug.Log($"{tcp.socket.Client.RemoteEndPoint} has disconnected.");
 
-            UnityEngine.Object.Destroy(player.gameObject);
-            player = null;
-
+            ThreadManager.ExecuteOnMainThread(() => {
+                UnityEngine.Object.Destroy(player.gameObject);
+                player = null;
+            });
             tcp.Disconnect();
             udp.Disconnect();
         }

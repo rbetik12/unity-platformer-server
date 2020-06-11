@@ -30,7 +30,6 @@ public class Player : MonoBehaviour {
         CheckJump();
         Move();
         SendPosition();
-        Debug.Log($"Colliding floor: {isFloorColliding}\n\tJumps amount: {jumpsAmount}");
     }
 
     private void CheckJump() {
